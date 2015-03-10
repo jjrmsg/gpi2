@@ -1,16 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BankAccountNS;
+using Bank;
+
 
 namespace BankTests
 {
     [TestClass]
     public class BankAccountTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        
         [TestMethod]
         public void Debit_WithValidAmount_UpdatesBalance()
         {
@@ -45,6 +43,16 @@ namespace BankTests
             // assert is handled by ExpectedException
         }
 
+        [TestMethod]
+        public void TestMorosos()
+        {
+            // arrange
+            double saldo = -100;
+            double nomina = 500;         
+            BankAccountMorosos m = new BankAccountMorosos(saldo, nomina, "Cualquiera");
+
+            m.Restarnomina(saldo, nomina, "Cualquiera");
+        }
 
 
     }

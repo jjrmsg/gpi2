@@ -10,7 +10,7 @@ Nota: No he creado la clase runner para realizar los test a las dos clases, ya q
 */
 using System;
 
-namespace BankAccountNS
+namespace Bank
 {
     public class BankAccount
     {
@@ -55,26 +55,12 @@ namespace BankAccountNS
             m_balance -= amount;
         }
 
-        public void Credit(double amount)
-        {
-            if (m_frozen)
-            {
-                throw new Exception("Account frozen");
-            }
-
-            if (amount < 0)
-            {
-                throw new ArgumentOutOfRangeException("amount");
-            }
-
-            m_balance += amount;
-        }
 
         public static void Main()
         {
             BankAccount ba = new BankAccount("Mr. Bryan Walton", 11.99);
 
-            ba.Credit(5.77);
+         
             ba.Debit(11.22);
             Console.WriteLine("Current balance is ${0}", ba.Balance);
         }
